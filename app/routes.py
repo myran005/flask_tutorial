@@ -1,18 +1,9 @@
 from app import app
+from flask import render_template
 
 @app.route('/')
 @app.route('/index')
 def index():
-    users = {'username' : 'Scott' }
-    return f'''
-<html>
-    <head>
-        <title>Home Page - Microblog</title>
-    </head>
-    <body>
-        <h1> Hello, {users['username']}!</h1>
-    </body>
-</html>
-
-'''
+    user = {'username' : 'Scott' }
+    return render_template('index.html', title = 'Home', user = user)
 
